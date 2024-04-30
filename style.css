@@ -422,8 +422,10 @@ h3{
     color: white;
     display: flex;
 }
-.skills-box{
-    width: 80px;
+.col .skills-box .skills-header{
+   position: relative;
+   right: 10px;
+    width: 65px;
     
 }
 .skills-header h3{
@@ -431,17 +433,46 @@ h3{
 }   
 .skills-list span{
     font-size: 10px;
+    position: relative;
+   right: 15px;
 } 
 
-.footer_menu_list a{
-    font-size: 10px;
+.middle-footer .footer-menu .footer_menu_list a{ 
+    position: relative;
+    right: 20px;
+    margin: 12px;
+    font-size: 12px;
    
 }
-.container #header{
-    width: 90%;
+
+.row .col .about-info{
+    position: relative;
+    right: 20px;
 }
-a .gbtn1{
-    text-decoration: none;
+
+.row .col .contact-info{
+    position: relative;
+    right: 20px;
+}
+
+.col .form-control{
+    position: relative;
+    right: 20px;
+}
+
+.bottom-footer p{
+font-size: 12px;
+position: relative;
+right: 20px;
+}
+.container #header{
+    width: 82%;
+}
+
+button .gbtn1 a{
+    height: 10px;
+    width: 50px;
+    font-size: 5px;
 }
 }
 
@@ -975,10 +1006,4 @@ color: var(--color-white);
         border: 1px solid #161b22;
         }
 
-        @media only screen and (min-width: 375px){
-.gbtn1{
-    height: 40px;
-    width: 50px;
-    font-size: 0px;
-}
-        }
+        
