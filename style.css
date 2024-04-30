@@ -408,6 +408,40 @@ h3{
     color: var(--color-white);
     z-index: 2;
 }
+
+@media only screen and (min-width: 375px){
+
+.portfolio{
+    width: 130%;
+   position: relative;
+   right: 50px;
+}
+.col{
+    width: 10%;
+    height: 10%;
+    color: white;
+    display: flex;
+}
+.skills-box{
+    width: 80px;
+    
+}
+.skills-header h3{
+    font-size: 16px;
+}   
+.skills-list span{
+    font-size: 10px;
+} 
+
+.footer_menu_list a{
+    font-size: 10px;
+   
+}
+.container #header{
+    width: 90%;
+}
+}
+
 .portfolio{
     
     padding: 110px 85px;
@@ -820,6 +854,7 @@ footer{
 
 }
 
+
 /* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
 
 @media only screen and (max-width: 540px){
@@ -934,4 +969,12 @@ color: var(--color-white);
         background-color:var(--body-color);
         color: #161b22;
         border: 1px solid #161b22;
+        }
+
+        @media only screen and (min-width: 375px){
+.gbtn1{
+    height: 40px;
+    width: 50px;
+    font-size: 0px;
+}
         }
