@@ -409,7 +409,7 @@ h3{
     z-index: 2;
 }
 
-@media only screen and (max-width: 376px){
+@media only screen and (max-width: 401px){
 
 .portfolio{
     width: 130%;
@@ -423,9 +423,8 @@ h3{
     display: flex;
 }
 .col .skills-box .skills-header{
-   position: relative;
-   right: 10px;
-    width: 65px;
+   
+    width: 75px;
     
 }
 .skills-header h3{
@@ -433,40 +432,18 @@ h3{
 }   
 .skills-list span{
     font-size: 10px;
-    position: relative;
-   right: 15px;
+   
 } 
 
 .middle-footer .footer-menu .footer_menu_list a{ 
-    position: relative;
-    right: 20px;
+    
     margin: 12px;
     font-size: 12px;
    
 }
 
-.row .col .about-info{
-    position: relative;
-    right: 20px;
-}
-
-.row .col .contact-info{
-    position: relative;
-    right: 20px;
-}
-
-.col .form-control{
-    position: relative;
-    right: 20px;
-}
-
-.bottom-footer p{
-font-size: 12px;
-position: relative;
-right: 20px;
-}
 .container #header{
-    width: 82%;
+    width: 96%;
 }
 
 button .gbtn1 a{
