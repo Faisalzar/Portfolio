@@ -440,6 +440,9 @@ h3{
 .container #header{
     width: 90%;
 }
+a .gbtn1{
+    text-decoration: none;
+}
 }
 
 .portfolio{
@@ -452,6 +455,7 @@ h3{
     padding: 8px 14px;
     
 }
+
 
 .portfolio .portfo-items .item{
     width: 80%;
