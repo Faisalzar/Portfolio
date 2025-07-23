@@ -173,10 +173,11 @@ document.addEventListener('DOMContentLoaded', function() {
         Promise.all([
             // Send auto-reply to the user
             emailjs.send('service_4pnw91m', 'template_jfparqr', {
+                from_name: userName,
+                from_email: userEmail,
                 to_name: userName,
                 to_email: userEmail,
-                from_name: 'Faisal Zariwala',
-                user_name: userName
+                reply_to: userEmail
             }),
             // Send notification to you
             emailjs.send('service_4pnw91m', 'template_q8hu2w8', {
