@@ -170,14 +170,25 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         // Send both emails using EmailJS
+        console.log('Sending auto-reply to:', userEmail);
+        console.log('Auto-reply parameters:', {
+            to_name: userName,
+            to_email: userEmail,
+            from_name: 'Faisal Zariwala',
+            reply_to: 'zariwalafaisal@gmail.com',
+            user_name: userName,
+            user_email: userEmail
+        });
+        
         Promise.all([
             // Send auto-reply to the user
             emailjs.send('service_4pnw91m', 'template_jfparqr', {
-                from_name: userName,
-                from_email: userEmail,
                 to_name: userName,
                 to_email: userEmail,
-                reply_to: userEmail
+                from_name: 'Faisal Zariwala',
+                reply_to: 'zariwalafaisal@gmail.com',
+                user_name: userName,
+                user_email: userEmail
             }),
             // Send notification to you
             emailjs.send('service_4pnw91m', 'template_q8hu2w8', {
@@ -188,7 +199,9 @@ document.addEventListener('DOMContentLoaded', function() {
             })
         ])
         .then(function(responses) {
-            console.log('Both emails sent successfully!', responses);
+            console.log('Both emails sent successfully!');
+            console.log('Auto-reply response:', responses[0]);
+            console.log('Notification response:', responses[1]);
             showMessage('Message sent successfully! Thank you for contacting me. You should receive a confirmation email shortly.', 'success');
             
             // Clear form
