@@ -184,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Sending auto-reply to:', userEmail);
             const autoReplyParams = {
                 to_email: userEmail,
+                to_name: userName,
                 from_name: userName,
                 message: userMessage
             };
