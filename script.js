@@ -1,7 +1,7 @@
 // Initialize EmailJS
 (function() {
     // EmailJS Public Key
-    emailjs.init("sy-rmqx_3t40fqBeciNDD"); // Your actual Public Key
+    emailjs.init("VqVR9pj1GgOUWhDjE"); // Your actual Public Key
 })();
 
 function myMenuFunction(){
