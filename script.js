@@ -1,4 +1,9 @@
-/* ----- NAVIGATION BAR FUNCTION ----- */
+// Initialize EmailJS
+(function() {
+    // EmailJS Public Key
+    emailjs.init("sy-rmqx_3t40fqBeciNDD"); // Your actual Public Key
+})();
+
 function myMenuFunction(){
     var menuBtn = document.getElementById("myNavMenu");
 
@@ -118,3 +123,113 @@ function scrollActive() {
 }
 
 window.addEventListener('scroll', scrollActive)
+
+/* ----- CONTACT FORM FUNCTIONALITY WITH EMAILJS ----- */
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Get form elements
+    const contactForm = document.querySelector('.form-control');
+    const nameInput = document.querySelector('input[placeholder="Name"]');
+    const emailInput = document.querySelector('input[placeholder="Email"]');
+    const messageInput = document.querySelector('textarea[placeholder="Message"]');
+    const sendButton = document.querySelector('.form-button .btn');
+    
+    // Add event listener to send button
+    sendButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const userName = nameInput.value.trim();
+        const userEmail = emailInput.value.trim();
+        const userMessage = messageInput.value.trim();
+        
+        // Validate form
+        if (!userName || !userEmail || !userMessage) {
+            showMessage('Please fill in all fields!', 'error');
+            return;
+        }
+        
+        // Validate email format
+        if (!isValidEmail(userEmail)) {
+            showMessage('Please enter a valid email address!', 'error');
+            return;
+        }
+        
+        // Show loading state
+        sendButton.innerHTML = 'Sending... <i class="uil uil-spinner"></i>';
+        sendButton.disabled = true;
+        
+        // Prepare email parameters
+        const templateParams = {
+            from_name: userName,
+            from_email: userEmail,
+            message: userMessage,
+            to_name: 'Faisal Zariwala' // Your name
+        };
+        
+        // Send email using EmailJS
+        emailjs.send('service_4pnw91m', 'template_jfparqr', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                showMessage('Message sent successfully! Thank you for contacting me.', 'success');
+                
+                // Clear form
+                nameInput.value = '';
+                emailInput.value = '';
+                messageInput.value = '';
+                
+            }, function(error) {
+                console.log('FAILED...', error);
+                showMessage('Failed to send message. Please try again later.', 'error');
+            })
+            .finally(function() {
+                // Reset button
+                sendButton.innerHTML = 'Send <i class="uil uil-message"></i>';
+                sendButton.disabled = false;
+            });
+    });
+    
+    // Email validation function
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    
+    // Show message function
+    function showMessage(message, type) {
+        // Remove existing messages
+        const existingMessage = document.querySelector('.form-message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+        
+        // Create message element
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `form-message ${type}`;
+        messageDiv.textContent = message;
+        
+        // Add styles
+        messageDiv.style.cssText = `
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+            ${type === 'success' ? 
+                'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;' : 
+                'background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'
+            }
+        `;
+        
+        // Insert message above the send button
+        const formButton = document.querySelector('.form-button');
+        formButton.parentNode.insertBefore(messageDiv, formButton);
+        
+        // Remove message after 5 seconds
+        setTimeout(() => {
+            messageDiv.remove();
+        }, 5000);
+    }
+});
