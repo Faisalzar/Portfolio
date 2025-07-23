@@ -169,26 +169,42 @@ document.addEventListener('DOMContentLoaded', function() {
             to_name: 'Faisal Zariwala' // Your name
         };
         
-        // Send email using EmailJS
-        emailjs.send('service_4pnw91m', 'template_jfparqr', templateParams)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                showMessage('Message sent successfully! Thank you for contacting me.', 'success');
-                
-                // Clear form
-                nameInput.value = '';
-                emailInput.value = '';
-                messageInput.value = '';
-                
-            }, function(error) {
-                console.log('FAILED...', error);
-                showMessage('Failed to send message. Please try again later.', 'error');
+        // Send both emails using EmailJS
+        Promise.all([
+            // Send auto-reply to the user
+            emailjs.send('service_4pnw91m', 'template_jfparqr', {
+                to_name: userName,
+                to_email: userEmail,
+                from_name: 'Faisal Zariwala',
+                user_name: userName
+            }),
+            // Send notification to you
+            emailjs.send('service_4pnw91m', 'template_q8hu2w8', {
+                from_name: userName,
+                from_email: userEmail,
+                message: userMessage,
+                to_name: 'Faisal Zariwala'
             })
-            .finally(function() {
-                // Reset button
-                sendButton.innerHTML = 'Send <i class="uil uil-message"></i>';
-                sendButton.disabled = false;
-            });
+        ])
+        .then(function(responses) {
+            console.log('Both emails sent successfully!', responses);
+            showMessage('Message sent successfully! Thank you for contacting me. You should receive a confirmation email shortly.', 'success');
+            
+            // Clear form
+            nameInput.value = '';
+            emailInput.value = '';
+            messageInput.value = '';
+            
+        })
+        .catch(function(error) {
+            console.log('Failed to send emails:', error);
+            showMessage('Failed to send message. Please try again later.', 'error');
+        })
+        .finally(function() {
+            // Reset button
+            sendButton.innerHTML = 'Send <i class="uil uil-message"></i>';
+            sendButton.disabled = false;
+        });
     });
     
     // Email validation function
