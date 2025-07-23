@@ -169,50 +169,52 @@ document.addEventListener('DOMContentLoaded', function() {
             to_name: 'Faisal Zariwala' // Your name
         };
         
-        // Send both emails using EmailJS
-        console.log('Sending auto-reply to:', userEmail);
-        console.log('Auto-reply parameters:', {
-            to_name: userName,
-            to_email: userEmail,
-            from_name: 'Faisal Zariwala',
-            reply_to: 'zariwalafaisal@gmail.com',
-            user_name: userName,
-            user_email: userEmail
-        });
-        
-        Promise.all([
-            // Send auto-reply to the user
-            emailjs.send('service_4pnw91m', 'template_jfparqr', {
-                to_name: userName,
+        // Send notification email first (this one works)
+        console.log('Sending notification email...');
+        emailjs.send('service_4pnw91m', 'template_q8hu2w8', {
+            from_name: userName,
+            from_email: userEmail,
+            message: userMessage,
+            to_name: 'Faisal Zariwala'
+        })
+        .then(function(notificationResponse) {
+            console.log('Notification email sent successfully:', notificationResponse);
+            
+            // Now send auto-reply
+            console.log('Sending auto-reply to:', userEmail);
+            const autoReplyParams = {
                 to_email: userEmail,
-                from_name: 'Faisal Zariwala',
-                reply_to: 'zariwalafaisal@gmail.com',
-                user_name: userName,
-                user_email: userEmail
-            }),
-            // Send notification to you
-            emailjs.send('service_4pnw91m', 'template_q8hu2w8', {
                 from_name: userName,
-                from_email: userEmail,
-                message: userMessage,
-                to_name: 'Faisal Zariwala'
-            })
-        ])
-        .then(function(responses) {
-            console.log('Both emails sent successfully!');
-            console.log('Auto-reply response:', responses[0]);
-            console.log('Notification response:', responses[1]);
+                message: userMessage
+            };
+            console.log('Auto-reply parameters:', autoReplyParams);
+            
+            return emailjs.send('service_4pnw91m', 'template_jfparqr', autoReplyParams);
+        })
+        .then(function(autoReplyResponse) {
+            console.log('Auto-reply sent successfully:', autoReplyResponse);
             showMessage('Message sent successfully! Thank you for contacting me. You should receive a confirmation email shortly.', 'success');
             
             // Clear form
             nameInput.value = '';
             emailInput.value = '';
             messageInput.value = '';
-            
         })
         .catch(function(error) {
-            console.log('Failed to send emails:', error);
-            showMessage('Failed to send message. Please try again later.', 'error');
+            console.log('Error details:', error);
+            console.log('Error status:', error.status);
+            console.log('Error text:', error.text);
+            
+            if (error.status === 200) {
+                // Notification sent but auto-reply failed
+                showMessage('Message sent! However, the auto-reply may not have been delivered.', 'success');
+                // Clear form
+                nameInput.value = '';
+                emailInput.value = '';
+                messageInput.value = '';
+            } else {
+                showMessage('Failed to send message. Please try again later.', 'error');
+            }
         })
         .finally(function() {
             // Reset button
