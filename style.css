@@ -103,6 +103,7 @@ nav{
     position: fixed;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     height: 90px;
     line-height: 90px;
@@ -110,6 +111,7 @@ nav{
     padding-inline: 9vw;
     transition: .3s;
     z-index: 100;
+    box-sizing: border-box;
 }
 .nav-logo{
    position: relative;
@@ -1053,28 +1055,40 @@ footer{
         justify-content: center;
     }
     
-    /* Improve mobile navbar spacing */
+    /* Improve mobile navbar spacing and force proper sizing */
     nav {
         padding-inline: 5vw;
         height: 70px;
         line-height: 70px;
+        max-width: 100vw;
+        overflow: hidden;
+        min-width: 100%;
     }
     
     .nav-name {
         font-size: 24px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     .theme-toggle {
         margin-right: 10px;
+        flex-shrink: 0;
     }
     
     .theme-btn {
         width: 35px;
         height: 35px;
+        flex-shrink: 0;
     }
     
     .theme-btn .theme-icon {
         font-size: 16px;
+    }
+    
+    .nav-menu-btn {
+        flex-shrink: 0;
     }
     .featured-box{
         flex-direction: column;
