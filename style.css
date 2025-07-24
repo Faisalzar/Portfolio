@@ -1052,6 +1052,30 @@ footer{
         align-items: center;
         justify-content: center;
     }
+    
+    /* Improve mobile navbar spacing */
+    nav {
+        padding-inline: 5vw;
+        height: 70px;
+        line-height: 70px;
+    }
+    
+    .nav-name {
+        font-size: 24px;
+    }
+    
+    .theme-toggle {
+        margin-right: 10px;
+    }
+    
+    .theme-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .theme-btn .theme-icon {
+        font-size: 16px;
+    }
     .featured-box{
         flex-direction: column;
         justify-content: center;
@@ -1116,6 +1140,132 @@ footer{
     }
     .input-field{
         width: 100%;
+    }
+    
+    /* Further mobile navbar optimizations */
+    nav {
+        padding-inline: 3vw;
+        height: 60px;
+        line-height: 60px;
+    }
+    
+    .nav-name {
+        font-size: 20px;
+    }
+    
+    .nav-logo span {
+        font-size: 3em;
+        top: -10px;
+        right: -15px;
+    }
+    
+    .theme-btn {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .theme-btn .theme-icon {
+        font-size: 14px;
+    }
+    
+    .nav-menu-btn i {
+        font-size: 24px;
+    }
+    
+    .wrapper {
+        padding-inline: 5vw;
+    }
+    
+    .portfolio {
+        padding: 40px 20px;
+    }
+}
+
+/* ----- MEDIA QUERY == 480px / RESPONSIVE ----- */
+@media only screen and (max-width: 480px){
+    nav {
+        padding-inline: 2vw;
+        height: 55px;
+        line-height: 55px;
+    }
+    
+    .nav-name {
+        font-size: 18px;
+    }
+    
+    .nav-logo span {
+        font-size: 2.5em;
+        top: -8px;
+        right: -12px;
+    }
+    
+    .theme-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .theme-btn .theme-icon {
+        font-size: 12px;
+    }
+    
+    .nav-menu-btn i {
+        font-size: 22px;
+    }
+    
+    .wrapper {
+        padding-inline: 3vw;
+    }
+}
+
+/* ----- MEDIA QUERY == 320px / RESPONSIVE ----- */
+@media only screen and (max-width: 320px){
+    nav {
+        padding-inline: 1vw;
+        height: 50px;
+        line-height: 50px;
+    }
+    
+    .nav-name {
+        font-size: 16px;
+    }
+    
+    .nav-logo span {
+        font-size: 2em;
+        top: -6px;
+        right: -10px;
+    }
+    
+    .theme-toggle {
+        margin-right: 5px;
+    }
+    
+    .theme-btn {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .theme-btn .theme-icon {
+        font-size: 10px;
+    }
+    
+    .nav-menu-btn i {
+        font-size: 20px;
+    }
+    
+    .wrapper {
+        padding-inline: 2vw;
+    }
+    
+    .portfolio {
+        padding: 30px 10px;
+    }
+    
+    .featured-name {
+        font-size: 28px;
+    }
+    
+    .featured-text-info {
+        font-size: 14px;
     }
 }
 
