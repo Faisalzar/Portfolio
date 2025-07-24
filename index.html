@@ -3,6 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Faisal Zariwala - Professional Web Developer specializing in Frontend Development with React, JavaScript, HTML, CSS. View my portfolio and contact me for web development projects.">
+    <meta name="keywords" content="Faisal Zariwala, Web Developer, Frontend Developer, React Developer, JavaScript, HTML, CSS, Portfolio, Dubai, Web Development">
+    <meta name="author" content="Faisal Zariwala">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://faisalzariwala.dev/"> 
+    <meta property="og:title" content="Faisal Zariwala - Web Developer Portfolio">
+    <meta property="og:description" content="Professional Web Developer specializing in Frontend Development with React, JavaScript, HTML, CSS. View my portfolio and contact me for web development projects.">
+    <meta property="og:image" content="https://faisalzariwala.dev/FA-L.jpeg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://faisalzariwala.dev/">
+    <meta property="twitter:title" content="Faisal Zariwala - Web Developer Portfolio">
+    <meta property="twitter:description" content="Professional Web Developer specializing in Frontend Development with React, JavaScript, HTML, CSS.">
+    <meta property="twitter:image" content="https://faisalzariwala.dev/FA-L.jpeg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://faisalzariwala.dev/">
 
     <!-- --------- UNICONS ---------- -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
@@ -13,7 +36,7 @@
     <!-- --------- FAVICON ---------- -->
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
 
-    <title>Portfolio</title>
+    <title>Faisal Zariwala - Web Developer Portfolio | Frontend & React Specialist</title>
 </head>
 <body>
    <div class="container">
@@ -49,6 +72,11 @@
         </div>
         <div class="nav-button">
             <a href="https://drive.google.com/file/d/16NtBpN4ALe5qqXGFQu4Ln1O2VLke4C6q/view?usp=sharing">  <button class="btn">Download CV <i class="uil uil-file-alt"></i></button></a>
+        </div>
+        <div class="theme-toggle">
+            <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                <i class="uil uil-moon theme-icon"></i>
+            </button>
         </div>
         <div class="nav-menu-btn">
             <i class="uil uil-bars" onclick="myMenuFunction()"></i>
@@ -211,7 +239,14 @@
                     
     
                     <div class="box1">
-                        <h4>2023 - 2025</h4>
+                        <h4>July 2024 — Oct 2024</h4>
+                        <h3>Front End Developer |  GAOTek Inc.</h3>
+                        <p><ul style="color: #666;">• Designed, developed, and maintained web applications using HTML, CSS, and JavaScript.</ul>
+                            <ul style="color: #666;">• Collaborated with UX/UI teams to ensure design consistency.  </ul>
+                            <ul style="color: #666;">• Optimized code to reduce load times by 50%, enhancing performance and user experience.</ul>
+                           </div>
+                     <div class="box1">
+                        <h4>2023 - 2024</h4>
                         <h3>Front End Developer | Kirabiz Technologies</h3>
                         <p><ul style="color: #666;">• Contributed to the design, development, and maintenance of web applications.</ul>
                             <ul style="color: #666;">• focusing on front end technologies including HTML, CSS, JavaScript and ReactJs. </ul>
@@ -246,30 +281,84 @@
             </div>
     
             <div class="portfo-items">
-                <div class="item">
-                    <img src="Home1.jpg">
+                <div class="item project-card" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://faisal-e-learning.netlify.app/" target="_blank" rel="noopener" class="project-image-link">
+                        <div class="project-image-container">
+                            <img src="Home1.jpg" alt="eLearning Website Screenshot" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <h4>View Project</h4>
+                                    <i class="uil uil-eye"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                     <div class="info">
-                        <h4>ELearning Website</h4>
+                        <div class="project-header">
+                            <h4>ELearning Website</h4>
+                            <div class="tech-stack">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">CSS</span>
+                            </div>
+                        </div>
                         <p>
                             eLearning ReactJS Project 🚀🔥 This web application is designed to provide users with a seamless learning experience across various categories such as Web Development, Mobile Development, Data Science, and Business. Users can explore top programs, register, and log in to access educational videos tailored to their interests.
                         </p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="uil uil-star"></i>
+                                <span>Featured</span>
+                            </div>
+                            <div class="stat">
+                                <i class="uil uil-clock"></i>
+                                <span>2024</span>
+                            </div>
+                        </div>
                          <div class="btnn">
-                       <a href="https://faisal-e-learning.netlify.app/"> <button class="btn">Live Demo</button></a>
-                        <a href="https://github.com/Faisalzar/e-Learning"><button class="btn" id="gbtn">Github</button></a>
+                       <a href="https://faisal-e-learning.netlify.app/" target="_blank" rel="noopener"> <button class="btn"><i class="uil uil-external-link-alt"></i>Live Demo</button></a>
+                        <a href="https://github.com/Faisalzar/e-Learning" target="_blank" rel="noopener"><button class="btn" id="gbtn"><i class="uil uil-github-alt"></i>Github</button></a>
                     </div>
                     </div>
                 </div>
-                <div class="item">
-                    <img src="quiz.jpg">
+                <div class="item project-card" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://faisalzar.github.io/quizGame/quiz.html" target="_blank" rel="noopener" class="project-image-link">
+                        <div class="project-image-container">
+                            <img src="quiz.jpg" alt="Quiz Game Screenshot" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <h4>View Project</h4>
+                                    <i class="uil uil-eye"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                     <div class="info">
-                        <h4>Quiz Game</h4>
+                        <div class="project-header">
+                            <h4>Quiz Game</h4>
+                            <div class="tech-stack">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
                         <p>
                             🚀 Quiz Game Web App Test your knowledge with this interactive Quiz Game! A simple web application built with HTML, CSS, and JavaScript. Dive into a variety of programming-related questions, track your score, and challenge your friends. Ready to play and learn? Let the quiz begin!
                         </p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="uil uil-game-structure"></i>
+                                <span>Interactive</span>
+                            </div>
+                            <div class="stat">
+                                <i class="uil uil-clock"></i>
+                                <span>2024</span>
+                            </div>
+                        </div>
                         <div>
                              <div class="btnn">
-                           <a href="https://faisalzar.github.io/quizGame/quiz.html"> <button class="btn">Live Demo</button></a>
-                           <a href="https://github.com/Faisalzar/quizGame"> <button class="btn" id="gbtn">Github</button></a>
+                           <a href="https://faisalzar.github.io/quizGame/quiz.html" target="_blank" rel="noopener"> <button class="btn"><i class="uil uil-external-link-alt"></i>Live Demo</button></a>
+                           <a href="https://github.com/Faisalzar/quizGame" target="_blank" rel="noopener"> <button class="btn" id="gbtn"><i class="uil uil-github-alt"></i>Github</button></a>
                             </div>
                         </div>
                     </div>
