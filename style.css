@@ -18,6 +18,22 @@
 
 }
 
+/* ----- DARK MODE VARIABLES ----- */
+[data-theme="dark"]{
+    --body-color: #1A1F26;
+    --color-white: #2D3748;
+
+    --text-color-second: #F7FAFC;
+    --text-color-third: rgb(102, 204, 255);
+
+    --first-color: rgb(138, 120, 255);
+    --first-color-hover: rgb(160, 140, 255);
+
+    --second-color: rgb(56, 178, 255);
+    --third-color: rgb(255, 215, 0);
+    --first-shadow-color: rgba(0, 0, 0, 0.4);
+}
+
 /* ----- BASE ----- */
 *{
     margin: 0;
@@ -146,6 +162,47 @@ nav{
     height: 5px;
     background: var(--first-color);
     border-radius: 50%;
+}
+
+/* ----- THEME TOGGLE BUTTON ----- */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.theme-btn {
+    background: var(--color-white);
+    border: 2px solid var(--first-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.theme-btn .theme-icon {
+    font-size: 20px;
+    color: var(--first-color);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .theme-btn {
+    background: var(--color-white);
+    border-color: var(--third-color);
+}
+
+[data-theme="dark"] .theme-btn .theme-icon {
+    color: var(--third-color);
 }
 
 
@@ -325,6 +382,15 @@ h3{
     text-align: center;
     font-size: 15px;
     color: #777;
+}
+
+/* Dark mode text visibility fixes */
+[data-theme="dark"] .about-info p {
+    color: #CBD5E0;
+}
+
+[data-theme="dark"] .featured-text-card span {
+    color: #1A1F26;
 }
 .about-btn button{
     position: absolute;
@@ -516,13 +582,111 @@ button .gbtn1 a{
     justify-content: space-between;
 }
 
+/* ----- INTERACTIVE PROJECT CARDS ----- */
+.project-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    transform: translateY(0);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.project-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--first-color), var(--second-color));
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 0.9;
+}
+
+.project-overlay-content {
+    text-align: center;
+    color: white;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-overlay-content {
+    transform: translateY(0);
+}
+
+.project-overlay-content h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.project-overlay-content i {
+    font-size: 24px;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.tech-tag {
+    background: var(--first-color);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.project-stats {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+    font-size: 12px;
+    color: var(--text-color-second);
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat i {
+    font-size: 14px;
+    color: var(--first-color);
+}
+
 .portfolio .portfo-items .item{
     width: 30%;
-    background-color: #fff;
+    background-color: var(--color-white);
     border-radius: 10px;
     border-bottom: 4px solid transparent;
     cursor: pointer;
-    box-shadow: 0 5px 32px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 32px var(--first-shadow-color);
     transition: all 0.3s ease;
 }
 
@@ -535,7 +699,12 @@ button .gbtn1 a{
     height: 240px;
     object-fit: cover;
     object-position: top;
-    border-radius: 10px 10px 20px 20px;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
 }
 
 .portfolio .portfo-items .item .info{
@@ -642,7 +811,18 @@ button .gbtn1 a{
    
     
     .portfolio .portfo-items .item{
-        width: 80%;
+        width: 90%;
+    }
+
+    /* ----- MOBILE BUTTON SIZE REDUCTION ----- */
+    .btnn .btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .btnn .btn i {
+        margin-left: 5px;
+        font-size: 12px;
     }
 
 
@@ -714,6 +894,7 @@ button .gbtn1 a{
     border-radius: 10px;
     padding-inline: 20px;
     outline: none;
+    color: var(--text-color-second);
 }
 textarea{
     width: 100%;
@@ -724,6 +905,19 @@ textarea{
     padding: 15px 20px;
     outline: none;
     resize: none;
+    color: var(--text-color-second);
+}
+
+/* Dark mode form input fixes */
+[data-theme="dark"] .input-field,
+[data-theme="dark"] textarea {
+    border-color: #4A5568;
+    color: #F7FAFC;
+}
+
+[data-theme="dark"] .input-field::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #A0AEC0;
 }
 .form-button>.btn{
     display: flex;
@@ -753,6 +947,7 @@ footer{
 .top-footer p{
     font-size: 25px;
     font-weight: 600;
+    color: var(--text-color-second);
 }
 .middle-footer .footer-menu{
     display: flex;
@@ -770,9 +965,49 @@ footer{
     display: flex;
     gap: 30px;   
 }
+.footer-social-icons .icon {
+    background: var(--color-white);
+    color: var(--text-color-second);
+}
 .bottom-footer{
     font-size: 14px;
     margin-top: 10px;
+    color: var(--text-color-second);
+}
+
+/* Dark mode footer fixes */
+[data-theme="dark"] footer {
+    background: #141920;
+}
+
+[data-theme="dark"] .footer_menu_list a {
+    color: #CBD5E0;
+}
+
+[data-theme="dark"] .footer_menu_list a:hover {
+    color: var(--text-color-third);
+}
+
+[data-theme="dark"] .footer-social-icons .icon {
+    background: var(--color-white);
+    color: var(--text-color-third);
+}
+
+[data-theme="dark"] .footer-social-icons .icon:hover {
+    background: var(--text-color-third);
+    color: white;
+}
+
+/* Social icons visibility in dark mode */
+[data-theme="dark"] .social_icons .icon {
+    background: var(--color-white);
+    color: var(--text-color-third);
+}
+
+[data-theme="dark"] .social_icons .icon:hover {
+    background: var(--text-color-third);
+    color: white;
+    transform: scale(1.1);
 }
 
 
@@ -953,9 +1188,9 @@ main.row1{
 	}
 }
 
-.btnn{
+.btnn {
     display: flex;   
-    gap: 2px;
+    gap: 10px;
 }
 
 .btnn .btn{
@@ -982,5 +1217,73 @@ color: var(--color-white);
         color: #161b22;
         border: 1px solid #161b22;
         }
+
+/* ----- DARK MODE GITHUB BUTTON FIX ----- */
+[data-theme="dark"] .btnn #gbtn {
+    background-color: #161b22;
+    color: #F7FAFC;
+    border: 1px solid #4A5568;
+}
+
+[data-theme="dark"] .btnn #gbtn:hover {
+    background-color: var(--color-white);
+    color: #161b22;
+    border: 1px solid #F7FAFC;
+}
+
+/* ----- DARK MODE PROJECT CARD TEXT VISIBILITY ----- */
+[data-theme="dark"] .portfolio .portfo-items .item .info h4 {
+    color: #F7FAFC;
+}
+
+[data-theme="dark"] .portfolio .portfo-items .item .info p {
+    color: #CBD5E0;
+}
+
+[data-theme="dark"] .project-stats {
+    color: #F7FAFC;
+}
+
+[data-theme="dark"] .project-stats .stat span {
+    color: #CBD5E0;
+}
+
+/* ----- DARK MODE RECENT PROJECTS TEXT ----- */
+[data-theme="dark"] .portfolio .header .info h5 {
+    color: #F7FAFC;
+}
+
+[data-theme="dark"] .portfolio .header .info h3 {
+    color: #F7FAFC;
+}
+
+/* ----- REMOVE UNDERLINES FROM BUTTONS AND OVERLAYS ----- */
+.portfolio .header button,
+.portfolio .header a {
+    text-decoration: none !important;
+}
+
+.project-overlay-link {
+    text-decoration: none !important;
+}
+
+.project-overlay-content h4 {
+    text-decoration: none !important;
+}
+
+.btnn a {
+    text-decoration: none !important;
+}
+
+/* ----- PROJECT IMAGE LINK STYLING ----- */
+.project-image-link {
+    display: block;
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.project-image-link:hover {
+    text-decoration: none !important;
+}
 
         
